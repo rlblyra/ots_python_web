@@ -4,7 +4,6 @@ app = Flask(__name__)
 
 app.config['SECRET_KEY'] = "pudim"
 
-
 @app.route('/')
 def exibir_entradas():
     entradas = posts [::-1]#mock das postagens
@@ -41,7 +40,7 @@ def inserir_entradas():
 @app.route('/posts/<int:id>')
 def exibir_entrada(id):
     try:
-        entrada=posts[id-1]
+        entrada = posts[id-1]
         return render_template('exibir_entrada.html', entrada=entrada)
-    cath
-    Exception
+    except Exception:
+        return abort(404)
